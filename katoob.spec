@@ -12,6 +12,7 @@ Source10:	%name-icons.tar.bz2
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	gtk2-devel gtkmm2.4-devel
 BuildRequires:  perl-XML-Parser
+BuildRequires:	cups-devel bzip2-devel aspell-devel
 
 %description
 Katoob is a light weight, multi lingual, BIDI-aware texteditor. It sup-

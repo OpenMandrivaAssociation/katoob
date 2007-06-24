@@ -1,13 +1,7 @@
-%define name	katoob
-%define version	0.5.3
-%define release	%mkrel 1
-%define Summary Light weight multilingual text editor that uses gtk2
-%define title	Katoob
-
-Name:		%name
-Version:	%version
-Release:	%release
-Summary:	%Summary
+Name:		katoob
+Version:	0.5.8
+Release:	%mkrel 1
+Summary:	Light weight multilingual text editor that uses gtk2
 URL:		http://www.arabeyes.org/project.php?proj=Katoob
 License:	GPL
 Group:		Editors
@@ -24,7 +18,6 @@ Katoob is a light weight, multi lingual, BIDI-aware texteditor. It sup-
 ports opening and saving files in multiple encodings. The main support
 was for Arabic language but more languages are currently supported.
 
-
 %prep
 %setup -q
 %setup -q -T -D -a10
@@ -33,33 +26,17 @@ was for Arabic language but more languages are currently supported.
 %configure --enable-spell
 %make
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
 
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat > $RPM_BUILD_ROOT%{_menudir}/%{name} <<EOF
-?package(%name): command="%{_bindir}/%{name}" needs="X11" \
-icon="%{name}.png" section="More Applications/Editors" \
-title="%title" longtitle="%Summary" xdg="true"
-EOF
+#rm -rf $RPM_BUILD_ROOT%{_datadir}/applications/katoob.desktop
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/applications/katoob.desktop
-
-mkdir -p %{buildroot}%{_datadir}/applications
-cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
-[Desktop Entry]
-Name=Katoob
-Comment=Light weight multilingual text editor that uses gtk2
-Exec=katoob
-Icon=%{name}
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-MoreApplications-Editors;TextEditor;
-EOF
-
-
+#mkdir -p %{buildroot}%{_datadir}/applications
+desktop-file-install --vendor="" \
+	--dir %{buildroot}%{_datadir}/applications \
+	--add-category="GTK" \
+	%{buildroot}%{_datadir}/applications/*.desktop
 
 #icons
 install -D -m 644 %{name}48.png $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
@@ -68,33 +45,26 @@ install -D -m 644 %{name}16.png $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
 
 %find_lang %{name}
 
-
 %post
 %{update_menus}
-
 
 %postun
 %{clean_menus}
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %files -f %{name}.lang
 %defattr( 0644, root, root, 755)
 %doc README ChangeLog AUTHORS COPYING TODO THANKS NEWS
 %{_datadir}/pixmaps/%{name}-icon.png
-%{_datadir}/applications/mandriva-katoob.desktop
+%{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/*
 %{_mandir}/man1/%{name}.1.bz2
 %lang(de) %{_mandir}/de/man1/*
-%{_menudir}/%{name}
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %dir %{_datadir}/%{name}
 %defattr( 0755, root, root, 755)
 %{_bindir}/*
-
-

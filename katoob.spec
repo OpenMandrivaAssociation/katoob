@@ -10,7 +10,7 @@ Group:		Editors
 Source:		%name-%version.tar.bz2
 Source10:	%name-icons.tar.bz2
 BuildRoot:	%_tmppath/%name-buildroot
-BuildRequires:	gtk2-devel
+BuildRequires:	gtk2-devel gtkmm2.4-devel
 BuildRequires:  perl-XML-Parser
 
 %description

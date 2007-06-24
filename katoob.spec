@@ -9,6 +9,8 @@ Group:		Editors
 # http://belnet.dl.sourceforge.net/sourceforge/arabeyes/katoob-0.3.5.tar.gz
 Source:		%name-%version.tar.bz2
 Source10:	%name-icons.tar.bz2
+# fwang: patch from debian to get it build in 64 bit environment
+Patch1:		katoob-0.5.8-getprotobyname-return-cast.patch
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	gtk2-devel gtkmm2.4-devel
 BuildRequires:  perl-XML-Parser
@@ -22,6 +24,7 @@ was for Arabic language but more languages are currently supported.
 %prep
 %setup -q
 %setup -q -T -D -a10
+%patch1 -p1
 
 %build
 %configure --enable-spell

@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/%{name}-icon.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/*
-%{_mandir}/man1/%{name}.1.bz2
+%{_mandir}/man1/%{name}.*
 %lang(de) %{_mandir}/de/man1/*
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png

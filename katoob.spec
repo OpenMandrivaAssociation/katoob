@@ -11,7 +11,6 @@ Source:		%name-%version.tar.bz2
 Source10:	%name-icons.tar.bz2
 # fwang: patch from debian to get it build in 64 bit environment
 Patch1:		katoob-0.5.8-getprotobyname-return-cast.patch
-BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	gtk2-devel gtkmm2.4-devel
 BuildRequires:  perl-XML-Parser
 BuildRequires:	cups-devel bzip2-devel aspell-devel

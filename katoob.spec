@@ -14,7 +14,7 @@ BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	gtk2-devel gtkmm2.4-devel
 BuildRequires:  perl-XML-Parser
 BuildRequires:	cups-devel bzip2-devel aspell-devel
-BuildRequires:	enchant-devel
+BuildRequires:	enchant-devel curl-devel
 BuildRequires:	desktop-file-utils
 Requires:	enchant
 

@@ -1,5 +1,5 @@
 Name:		katoob
-Version:	0.5.9
+Version:	0.5.9.1
 Release:	%mkrel 1
 Summary:	Light weight multilingual text editor that uses gtk2
 URL:		http://www.arabeyes.org/project.php?proj=Katoob

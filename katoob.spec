@@ -10,6 +10,9 @@ Source:		ftp://foolab.org/pub/software/katoob/%name-%version.tar.gz
 Source10:	%name-icons.tar.bz2
 # fwang: patch from debian to get it build in 64 bit environment
 Patch1:		katoob-0.5.8-getprotobyname-return-cast.patch
+Patch2:		katoob-0.5.9.1-gcc43.patch
+Patch3:		katoob-0.5.9.1-glibc2.10.patch
+Patch4:		katoob-0.5.9.1-gtk.patch
 BuildRoot:	%_tmppath/%name-buildroot
 BuildRequires:	gtk2-devel gtkmm2.4-devel
 BuildRequires:  perl-XML-Parser
@@ -26,8 +29,9 @@ was for Arabic language but more languages are currently supported.
 %prep
 %setup -q
 %setup -q -T -D -a10
-#%patch1 -p1
-#%patch2 -p0
+%patch2 -p1
+%patch3 -p1
+%patch4 -p0
 
 %build
 %configure2_5x --enable-spell

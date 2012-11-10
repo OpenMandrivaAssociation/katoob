@@ -1,0 +1,12 @@
+--- katoob-0.5.6.orig/src/DICTClient/DICTClient.cc	2006-08-05 00:48:12.000000000 +0300
++++ katoob-0.5.6/src/DICTClient/DICTClient.cc	2007-01-07 03:03:26.000000000 +0200
+@@ -132,7 +132,8 @@
+   memcpy(&sad.sin_addr, ptrh->h_addr, ptrh->h_length);
+ 
+   /* Map TCP tranbsport protocol name to protocol number */
+-  if (((int)(ptrp = getprotobyname("tcp"))) == 0) {
++  ptrp = getprotobyname("tcp");
++  if (ptrp == NULL) {
+     throw CannotMapTcpToProtocolNumber();
+   }
+

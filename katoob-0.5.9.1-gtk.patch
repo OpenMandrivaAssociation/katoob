@@ -1,0 +1,11 @@
+--- src/preferencesdialog.cc.gtk	2010-02-19 20:06:06.000000000 +0100
++++ src/preferencesdialog.cc	2010-02-19 20:06:23.000000000 +0100
+@@ -85,7 +85,7 @@
+ 
+ 
+   dialog.add_button(Gtk::Stock::CANCEL, Gtk::RESPONSE_CANCEL);
+-  Gtk::HButtonBox* box = dialog.get_action_area();
++  Gtk::ButtonBox* box = dialog.get_action_area();
+   box->pack_start(apply);
+   //  dialog.add_button(Gtk::Stock::APPLY, Gtk::RESPONSE_APPLY);
+   dialog.add_button(Gtk::Stock::OK, Gtk::RESPONSE_OK);

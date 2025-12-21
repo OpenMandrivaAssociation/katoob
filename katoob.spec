@@ -15,6 +15,11 @@ Patch3:		katoob-0.5.9.1-glibc2.10.patch
 Patch4:		katoob-0.5.9.1-gtk.patch
 Patch5:		katoob-0.5.9.1-linking.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gdk-2.0)
 BuildRequires:	pkgconfig(gdkmm-2.4)
 BuildRequires:	perl-XML-Parser
